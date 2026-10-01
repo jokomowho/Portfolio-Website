@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected end-to-end product design case studies by Joy McLeod." />
+  <title>Case Studies — Joy McLeod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#151515; --paper:#fbfbfa; --muted:#686864; --line:#e1e1dc; --pink:#c51f5b; --soft-pink:#faedf2; --lime:#d9ff00; --serif:'Playfair Display', Georgia, serif; --sans:'Manrope', Arial, sans-serif; --mono:'DM Mono', monospace; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+    ::selection { background:var(--pink); color:white; }
+    .noise { position:fixed; inset:0; pointer-events:none; z-index:20; opacity:.035; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+    .wrap { width:min(1280px, calc(100% - 64px)); margin:auto; }
+    .eyebrow, .meta { font:500 11px/1.3 var(--mono); text-transform:uppercase; letter-spacing:.11em; }
+    .eyebrow { color:var(--pink); }
+    header { position:sticky; top:0; z-index:10; padding:21px 0; border-bottom:1px solid transparent; background:rgba(251,251,250,.88); backdrop-filter:blur(15px); }
+    body.study-open header { border-color:var(--line); }
+    nav { position:relative; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:inline-flex; align-items:center; gap:8px; font-size:16px; font-weight:800; letter-spacing:-.05em; }
+    .brand-avatar { position:relative; display:grid; place-items:center; width:29px; height:29px; overflow:hidden; border:1px solid var(--ink); border-radius:50%; background:var(--soft-pink); color:var(--ink); font:700 9px var(--mono); letter-spacing:-.08em; }
+    .brand-avatar:before { content:""; position:absolute; width:17px; height:17px; border-radius:50%; background:var(--pink); top:-7px; right:-5px; }
+    .brand-avatar:after { content:""; position:absolute; width:13px; height:8px; border-radius:9px 9px 3px 3px; background:var(--ink); bottom:-3px; left:3px; }
+    .brand-avatar span { position:relative; z-index:1; }
+    .brand-avatar:before, .brand-avatar:after { display:none; }
+    .brand-avatar img { width:100%; height:100%; object-fit:cover; object-position:center 34%; transform:scale(1.18); }
+    .brand-mark { color:var(--pink); font-size:13px; line-height:1; transform:rotate(18deg); }
+    .nav-links { display:flex; align-items:center; gap:25px; font-size:12px; font-weight:700; }
+    .nav-links a:not(.nav-resume) { transition:color .2s; }
+    .nav-links a:not(.nav-resume):hover, .nav-links [aria-current="page"] { color:var(--pink); }
+    .nav-resume { border-bottom:2px solid var(--pink); padding-bottom:3px; }
+    .nav-toggle { display:none; place-items:center; width:44px; height:44px; padding:0; border:1px solid var(--ink); border-radius:50%; color:var(--ink); background:rgba(255,255,255,.9); cursor:pointer; }
+    .nav-toggle:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
+    .nav-toggle-icon,.nav-toggle-icon:before,.nav-toggle-icon:after { display:block; width:18px; height:1.5px; border-radius:99px; background:currentColor; transition:transform .2s ease,background .2s ease; }
+    .nav-toggle-icon { position:relative; }
+    .nav-toggle-icon:before,.nav-toggle-icon:after { content:""; position:absolute; left:0; }
+    .nav-toggle-icon:before { top:-6px; }
+    .nav-toggle-icon:after { top:6px; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-icon { background:transparent; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-icon:before { transform:translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-icon:after { transform:translateY(-6px) rotate(-45deg); }
+    .case-page-hero { position:relative; overflow:hidden; padding:clamp(70px,8vw,118px) 0; color:var(--ink); background:linear-gradient(125deg,#f3dce6 0%,#fbf6f8 58%,#eed1de 100%); }
+    .case-page-hero:before { content:""; position:absolute; width:620px; height:620px; right:-190px; top:50%; border:1px solid rgba(197,31,91,.18); border-radius:50%; transform:translateY(-50%); }
+    .case-page-hero:after { content:""; position:absolute; width:360px; height:360px; right:3%; top:50%; border:1px solid rgba(197,31,91,.12); border-radius:50%; transform:translateY(-50%); }
+    .case-page-hero .wrap { position:relative; z-index:1; }
+    .case-page-hero-layout { display:grid; grid-template-columns:1.25fr .75fr; gap:50px; align-items:end; }
+    h1, h2, h3, p { margin-top:0; }
+    .case-page-hero .eyebrow { color:var(--pink); }
+    .case-page-hero h1 { max-width:780px; margin:17px 0 0; font-size:clamp(53px,7.2vw,105px); font-weight:600; letter-spacing:-.085em; line-height:.94; }
+    h1 em, h2 em { color:var(--pink); font-family:var(--serif); font-weight:500; }
+    .case-page-hero h1 em { color:var(--pink); }
+    .case-page-hero p { max-width:390px; margin:0; color:#584a51; font-size:15px; line-height:1.75; }
+    .case-hub { padding:54px 0 138px; }
+    body.study-open .case-page-hero { display:none; }
+    .study-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:13px; margin-top:14px; }
+    .study-card { --card-accent:var(--pink); --card-glow:rgba(197,31,91,.3); position:relative; min-height:530px; display:flex; flex-direction:column; padding:0; overflow:hidden; border:1px solid rgba(21,21,21,.13); border-radius:8px; color:var(--ink); isolation:isolate; background:var(--card-surface,#f1f1ee); box-shadow:0 5px 14px rgba(56,25,38,.08); transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease; }
+    .study-card:hover, .study-card:focus-visible { transform:translateY(-8px); box-shadow:0 18px 32px rgba(56,25,38,.18); }
+    .study-card:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
+    .study-card:before { content:""; position:absolute; z-index:0; inset:0 0 auto; height:268px; background:linear-gradient(135deg,var(--card-glow),transparent 58%),var(--card-image) center/cover no-repeat; transition:transform .65s ease; }
+    .study-card:hover:before { transform:scale(1.05); }
+    .study-card:after { content:""; position:absolute; z-index:0; inset:0 0 auto; height:268px; background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(21,21,21,.06)); pointer-events:none; }
+    .study-card.sbr { --card-image:url('assets/case-studies/sbr/sbr-hifi1.svg'); --card-surface:linear-gradient(135deg,#e6edf5,#f8fafc); --card-accent:#157d9b; --card-glow:rgba(21,125,155,.34); }
+    .study-card.startdot { --card-image:url('assets/case-studies/startdot/startdot-featured.svg'); --card-surface:linear-gradient(135deg,#eae7f4,#faf9fc); --card-accent:#7256a8; --card-glow:rgba(114,86,168,.3); }
+    .study-card.mg { --card-image:url('assets/case-studies/mg/mg-featured.svg'); --card-surface:linear-gradient(135deg,#e3f0ec,#f8fcfa); --card-accent:#157363; --card-glow:rgba(21,115,99,.32); }
+    .study-card.diakrino { --card-image:url('assets/case-studies/diakrino/diakrino-featured.svg'); --card-surface:linear-gradient(135deg,#f3e7ec,#fcf9fa); --card-accent:#a24567; --card-glow:rgba(162,69,103,.3); }
+    .study-card.bbd { --card-image:url('assets/case-studies/bbd/bbd-hero.png'); --card-surface:linear-gradient(135deg,#e1f3fa,#f8fcfd); --card-accent:#14758d; --card-glow:rgba(20,117,141,.32); }
+    .study-card.sbr:before { background-position:78% center; }
+    .study-card.bbd:before { background-position:68% center; }
+    .study-card.bbd h2 { font-size:clamp(28px,2.8vw,40px); }
+    .study-number { position:absolute; z-index:2; top:22px; left:22px; width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:white; color:var(--ink); font:11px var(--mono); box-shadow:0 4px 14px rgba(0,0,0,.14); }
+    .study-content { position:relative; z-index:1; flex:1; display:flex; flex-direction:column; margin-top:268px; padding:25px; background:var(--card-surface); }
+    .study-content:before { content:""; position:absolute; top:0; left:25px; width:48px; height:3px; background:var(--card-accent); }
+    .study-type { display:block; margin-bottom:11px; color:#9e1649; }
+    .study-card h2 { max-width:455px; margin:0 0 17px; font-size:clamp(29px,3.1vw,46px); font-weight:600; letter-spacing:-.07em; line-height:.97; }
+    .study-card p { max-width:440px; margin:0 0 20px; font-size:13px; line-height:1.6; color:#3d3d39; }
+    .study-kpi { position:relative; display:flex; align-items:baseline; gap:9px; margin:0 0 19px; padding:18px 12px 10px; border-left:3px solid var(--card-accent); color:#3d3d39; transition:transform .25s ease; }
+    .study-kpi:before { content:"Impact"; position:absolute; top:5px; left:12px; color:var(--card-accent); font:500 8px var(--mono); letter-spacing:.09em; text-transform:uppercase; }
+    .study-kpi strong { color:var(--card-accent); font-size:24px; font-weight:800; letter-spacing:-.075em; line-height:1; white-space:nowrap; }
+    .study-kpi span { font:500 10px/1.35 var(--mono); text-transform:uppercase; letter-spacing:.055em; }
+    .study-cta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:13px; border-top:1px solid rgba(21,21,21,.2); font:500 10px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+    .study-card:hover .study-kpi { transform:translateX(3px); }
+    .study-cta b { color:var(--card-accent); font:500 21px/10px var(--sans); transition:transform .25s ease; }
+    .study-card:hover .study-cta b { transform:translateX(4px); }
+    .case-detail { display:none; padding:32px 0 130px; }
+    .case-detail.active { display:block; }
+    .detail-back { display:inline-flex; align-items:center; gap:9px; margin-bottom:20px; color:var(--muted); font:500 11px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+    .detail-back b { display:grid; width:24px; height:24px; place-items:center; border:1px solid var(--line); border-radius:50%; color:var(--ink); font-size:16px; transition:.2s; }
+    .detail-back:hover b { border-color:var(--ink); background:var(--ink); color:white; }
+    .detail-hero { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:stretch; min-height:620px; padding:clamp(36px,5.3vw,76px); overflow:hidden; border-radius:10px; background:linear-gradient(135deg,#f8e8ef,#fdfafa); }
+    .detail-hero > *, .story > * { min-width:0; }
+    #sbr .detail-hero { background:linear-gradient(135deg,#e6edf5,#f8fafc); }
+    #startdot .detail-hero { background:linear-gradient(135deg,#eae7f4,#faf9fc); }
+    #mg .detail-hero { background:linear-gradient(135deg,#e3f0ec,#f8fcfa); }
+    #diakrino .detail-hero { background:linear-gradient(135deg,#f3e7ec,#fcf9fa); }
+    #bbd .detail-hero { background:linear-gradient(135deg,#dff3fa,#f8fcfd); }
+    #sbr .hero-visual img { mix-blend-mode:normal; }
+    #bbd .hero-visual img { mix-blend-mode:normal; }
+    .detail-hero > div:first-child { display:flex; flex-direction:column; justify-content:center; }
+    .detail-hero h1 { max-width:650px; margin:15px 0 25px; font-size:clamp(48px,6.5vw,94px); font-weight:600; letter-spacing:-.085em; line-height:.94; overflow-wrap:break-word; }
+    .detail-summary { max-width:590px; margin:0; color:#444440; font-size:17px; line-height:1.75; }
+    .detail-meta { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; margin-top:37px; padding-top:18px; border-top:1px solid var(--line); }
+    .detail-meta span { display:block; margin-bottom:7px; color:var(--pink); font:500 10px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+    .detail-meta b { display:block; font-size:12px; line-height:1.45; }
+    .hero-visual { position:relative; min-height:0; overflow:hidden; border-radius:8px; }
+    .hero-visual img { position:absolute; z-index:1; width:94%; max-height:88%; object-fit:contain; inset:6% 3%; filter:drop-shadow(0 24px 34px rgba(25,18,22,.16)); mix-blend-mode:multiply; }
+    .process-rail { display:grid; grid-template-columns:repeat(4,1fr); padding:26px 0 35px; border-top:1px solid var(--ink); border-bottom:1px solid var(--line); }
+    .process-rail div { min-height:102px; padding:0 22px; border-left:1px solid var(--line); }
+    .process-rail div:first-child { padding-left:0; border-left:0; }
+    .process-rail i { display:block; width:8px; height:8px; margin-bottom:25px; border-radius:50%; background:var(--pink); }
+    .process-rail div:nth-child(even) i { background:var(--lime); }
+    .process-rail b { display:block; margin-bottom:5px; font-size:14px; }
+    .process-rail small { color:var(--muted); font-size:11px; line-height:1.45; }
+    .story { display:grid; grid-template-columns:.68fr 1.32fr; gap:65px; padding:88px 0; border-bottom:1px solid var(--line); }
+    .story-label { color:var(--pink); font:500 11px/1.35 var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+    .story-main h2 { max-width:760px; margin-bottom:25px; font-size:clamp(33px,4vw,58px); font-weight:600; letter-spacing:-.07em; line-height:1.02; }
+    .story-main > p { max-width:700px; margin:0 0 24px; color:#4b4b47; font-size:15px; line-height:1.8; }
+    .story-main h3 { margin:36px 0 13px; font-size:17px; letter-spacing:-.035em; }
+    .role-list, .bullet-list { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px 26px; padding:0; margin:0; list-style:none; }
+    .role-list li, .bullet-list li { position:relative; padding-left:16px; color:#4b4b47; font-size:13px; line-height:1.6; }
+    .role-list li:before, .bullet-list li:before { content:""; position:absolute; top:.6em; left:0; width:6px; height:6px; border-radius:50%; background:var(--pink); }
+    .asset-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:36px; }
+    .asset-grid .asset-full { grid-column:1 / -1; }
+    .asset-grid.one { grid-template-columns:1fr; }
+    .persona-board { position:relative; isolation:isolate; overflow:hidden; margin-top:36px; padding:clamp(25px,4vw,48px); border:1px solid #acd6c9; border-radius:7px; color:#164c45; background:linear-gradient(135deg,#e2f3ed 0%,#f3faf7 58%,#d4ede5 100%); }
+    .persona-board:before { content:""; position:absolute; z-index:-1; width:330px; height:330px; top:-220px; right:-90px; border:1px solid rgba(12,112,97,.25); border-radius:50%; box-shadow:0 0 0 42px rgba(12,112,97,.05),0 0 0 84px rgba(12,112,97,.035); }
+    .persona-board:after { content:""; position:absolute; z-index:-1; width:210px; height:210px; bottom:-150px; left:29%; border:1px solid rgba(197,31,91,.28); border-radius:50%; }
+    .persona-board-header { display:flex; align-items:start; justify-content:space-between; gap:22px; margin-bottom:30px; }
+    .persona-board-kicker { display:block; margin-bottom:10px; color:#087568; font:500 10px var(--mono); text-transform:uppercase; letter-spacing:.1em; }
+    .persona-board h3 { max-width:500px; margin:0; color:#124b43; font-size:clamp(22px,3vw,34px); letter-spacing:-.055em; line-height:1.05; }
+    .persona-board-mark { flex:0 0 auto; display:grid; place-items:center; width:42px; height:42px; border:1px solid #78b9ab; border-radius:50%; color:#087568; font:500 15px var(--mono); }
+    .persona-roles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+    .persona-role { min-height:167px; padding:19px; border:1px solid #bbddd3; border-radius:5px; background:rgba(255,255,255,.7); }
+    .persona-role > span { display:grid; place-items:center; width:29px; height:29px; margin-bottom:28px; border-radius:50%; background:#087568; color:white; font:700 10px var(--mono); }
+    .persona-role b { display:block; margin-bottom:7px; color:#174a43; font-size:13px; line-height:1.25; }
+    .persona-role small { display:block; color:#3b625b; font-size:11px; line-height:1.55; }
+    .persona-board-note { max-width:670px; margin:21px 0 0; color:#356159; font-size:12px; line-height:1.6; }
+    figure { margin:0; overflow:hidden; border:1px solid var(--line); border-radius:5px; background:white; }
+    figure img { display:block; width:100%; height:auto; }
+    figcaption { padding:10px 12px; color:var(--muted); font:500 9px/1.4 var(--mono); text-transform:uppercase; letter-spacing:.065em; border-top:1px solid var(--line); }
+    .impact { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:40px; background:var(--line); border:1px solid var(--line); }
+    .impact div { min-height:150px; padding:22px; background:var(--ink); color:white; }
+    .impact span { display:block; margin-bottom:13px; color:var(--lime); font:500 10px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+    .impact strong { display:block; margin-bottom:8px; font-size:19px; letter-spacing:-.045em; line-height:1; }
+    .impact p { margin:0; color:#c7c7c2; font-size:11px; line-height:1.55; }
+    #bbd .impact div { background:#083a51; }
+    #bbd .impact span { color:#6fdbff; }
+    .next-study { display:flex; justify-content:space-between; align-items:end; margin-top:76px; padding-top:24px; border-top:1px solid var(--ink); }
+    .next-study > span { color:var(--muted); }
+    .next-study a { display:inline-flex; align-items:center; gap:11px; max-width:590px; padding-bottom:8px; border-bottom:2px solid var(--pink); text-align:right; font-size:30px; font-weight:600; letter-spacing:-.075em; line-height:.95; transition:color .2s ease, gap .2s ease; }
+    .next-study a:after { content:"→"; color:var(--pink); font:400 1.05em/1 var(--sans); letter-spacing:0; transition:transform .2s ease; }
+    .next-study a:hover, .next-study a:focus-visible { color:var(--pink); gap:16px; }
+    .next-study a:focus-visible { outline:2px solid var(--pink); outline-offset:6px; }
+    .next-study a:hover:after, .next-study a:focus-visible:after { transform:translateX(4px); }
+    .next-study a em { color:var(--pink); font-family:var(--serif); font-weight:500; }
+    .back-to-top { display:none; }
+    @media (max-width:600px) { .back-to-top { position:fixed; z-index:30; right:20px; bottom:max(20px,env(safe-area-inset-bottom)); display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 14px; border:1px solid var(--ink); border-radius:999px; color:white; background:var(--ink); box-shadow:0 10px 24px rgba(21,21,21,.2); font:700 11px var(--sans); opacity:0; visibility:hidden; pointer-events:none; transform:translateY(10px); transition:opacity .2s ease,transform .2s ease,visibility .2s ease; }.back-to-top.is-visible { opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }.back-to-top span { display:grid; place-items:center; width:19px; height:19px; border-radius:50%; color:var(--ink); background:var(--lime); font-size:14px; }.back-to-top:focus-visible { outline:3px solid var(--pink); outline-offset:3px; } }
+    footer { padding:23px 0; background:#090909; color:#9a9a95; }
+    footer .wrap { display:flex; justify-content:space-between; gap:18px; font:10px var(--mono); text-transform:uppercase; letter-spacing:.05em; }
+    @media (prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+    @media (max-width:900px) { .case-page-hero-layout,.detail-hero,.story { grid-template-columns:1fr; gap:30px; }.case-page-hero p { max-width:530px; }.hero-visual { min-height:400px; }.detail-hero { min-height:0; padding:52px; gap:28px; }.story { gap:19px; }.process-rail { grid-template-columns:repeat(2,1fr); gap:25px 0; }.process-rail div:nth-child(3) { padding-left:0; border-left:0; }.impact { grid-template-columns:1fr; }.next-study { gap:25px; }.next-study a { max-width:60%; } }
+    @media (max-width:600px) { .wrap { width:min(1280px,calc(100% - 40px)); } header { padding:18px 0; }.nav-toggle { display:grid; }.nav-links { position:absolute; z-index:2; top:calc(100% + 13px); right:0; width:min(300px,calc(100vw - 40px)); flex-direction:column; align-items:stretch; gap:0; padding:8px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.98); box-shadow:0 16px 35px rgba(21,21,21,.14); opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-8px); transition:opacity .2s ease,transform .2s ease,visibility .2s ease; }.nav-open .nav-links { opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }.nav-links a { display:block!important; padding:13px 14px; border-radius:5px; }.nav-links a:hover,.nav-links a:focus-visible { background:var(--soft-pink); }.nav-links .nav-resume { margin:4px 0 0; padding:12px 14px; border:1px solid var(--pink); border-bottom:1px solid var(--pink); text-align:center; }.case-page-hero { padding:66px 0 62px; }.case-page-hero h1 { font-size:54px; }.case-hub { padding:42px 0 80px; }.study-grid { grid-template-columns:1fr; }.study-card { min-height:475px; }.study-card:before,.study-card:after { height:230px; }.study-content { margin-top:230px; padding:20px; }.study-number { top:20px; left:20px; }.case-detail { padding:24px 0 78px; }.detail-back { margin-bottom:16px; }.detail-hero { padding:32px 24px; border-radius:7px; }.detail-hero h1 { max-width:100%; font-size:clamp(43px,13vw,54px); }.detail-summary { font-size:15px; }.detail-meta { grid-template-columns:repeat(2,minmax(0,1fr)); }.detail-meta div:last-child { grid-column:span 2; }.hero-visual { min-height:310px; }.process-rail { grid-template-columns:1fr 1fr; padding-bottom:25px; }.process-rail div { min-height:93px; padding:0 13px; }.process-rail b { font-size:12px; }.process-rail small { font-size:10px; }.story { padding:62px 0; }.story-main h2 { font-size:38px; }.story-main > p { font-size:14px; }.role-list,.bullet-list,.asset-grid,.persona-roles { grid-template-columns:1fr; }.persona-board-header { margin-bottom:24px; }.persona-role { min-height:0; }.persona-role > span { margin-bottom:16px; }.impact div { min-height:0; }.next-study { display:block; margin-top:50px; }.next-study a { display:inline-flex; max-width:none; margin-top:19px; text-align:left; font-size:30px; } footer .wrap { flex-wrap:wrap; } }
+  </style>
+</head>
+<body id="top">
+  <div class="noise"></div>
+  <header>
+    <nav class="wrap" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Joy McLeod, home"><span class="brand-avatar" aria-hidden="true"><img src="assets/brand/joy-avatar-illustration-v2.png" alt="" /></span>joy<span class="brand-mark">✦</span>mcleod</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation"><span class="nav-toggle-icon" aria-hidden="true"></span></button>
+      <div class="nav-links" id="primary-navigation">
+        <a class="nav-home" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="case-studies.html" aria-current="page">Work Samples</a>
+        <a class="nav-resume" href="joy-mcleod-resume.pdf" target="_blank">Resume ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-page-hero" aria-labelledby="case-studies-title">
+      <div class="wrap">
+        <div class="case-page-hero-layout">
+          <div>
+            <span class="eyebrow">Selected work · 2026</span>
+            <h1 id="case-studies-title">End-to-end,<br/><em>UX Case Studies.</em></h1>
+          </div>
+          <p>UX stories spanning enterprise sales, workplace tools, health analytics and environmental technology. Each starts with a distinct challenge and follows the work from discovery through delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-hub wrap" id="all">
+      <div class="study-grid" aria-label="Case studies">
+        <a class="study-card bbd" href="#bbd">
+          <span class="study-number">01</span><div class="study-content"><span class="study-type meta">Aviation · Enterprise CRM · AI</span>
+          <h2>Bombardier Salesforce AI Transformation</h2><p>Connecting sales, service and aircraft intelligence in one decision-ready Salesforce experience.</p>
+          <span class="study-kpi"><strong>90%</strong><span>reported better journey visibility</span></span>
+          <span class="study-cta">Explore the case study <b>↗</b></span></div>
+        </a>
+        <a class="study-card sbr" href="#sbr">
+          <span class="study-number">02</span><div class="study-content"><span class="study-type meta">Salesforce · UX strategy</span>
+          <h2>Salesforce Sunbelt Transformation</h2><p>Reframing fragmented renewal work into one clear, proactive Salesforce experience.</p>
+          <span class="study-kpi"><strong>30%</strong><span>faster renewal completion</span></span>
+          <span class="study-cta">Explore the case study <b>↗</b></span></div>
+        </a>
+        <a class="study-card startdot" href="#startdot">
+          <span class="study-number">03</span><div class="study-content"><span class="study-type meta">Research · Strategy · UI</span>
+          <h2>EPE Centralized Workplace Hub</h2><p>A central home for the tools, documents and services employees need to do their work.</p>
+          <span class="study-kpi"><strong>1</strong><span>central resource hub</span></span>
+          <span class="study-cta">Explore the case study <b>↗</b></span></div>
+        </a>
+        <a class="study-card mg" href="#mg">
+          <span class="study-number">04</span><div class="study-content"><span class="study-type meta">Data UX · Dashboard</span>
+          <h2>Analytical Dashboard</h2><p>Making health-center performance easier to monitor, compare and act on.</p>
+          <span class="study-kpi"><strong>70%</strong><span>less decision-making time</span></span>
+          <span class="study-cta">Explore the case study <b>↗</b></span></div>
+        </a>
+        <a class="study-card diakrino" href="#diakrino">
+          <span class="study-number">05</span><div class="study-content"><span class="study-type meta">Product design · UX</span>
+          <h2>Diakrino Product</h2><p>Turning technical environmental modeling information into an approachable product experience.</p>
+          <span class="study-kpi"><strong>30%</strong><span>better demo conversion</span></span>
+          <span class="study-cta">Explore the case study <b>↗</b></span></div>
+        </a>
+      </div>
+    </section>
+
+    <article class="case-detail wrap" id="sbr" aria-labelledby="sbr-title">
+      <a class="detail-back" href="#all"><b>←</b> All case studies</a>
+      <div class="detail-hero">
+        <div>
+          <span class="eyebrow">02 — Salesforce · UX strategy</span>
+          <h1 id="sbr-title">Salesforce SBR <em>Solution.</em></h1>
+          <p class="detail-summary">A unified renewal workflow that brought together fragmented systems, customer context and proactive next steps for sales teams.</p>
+          <div class="detail-meta"><div><span>Role</span><b>UX Design Lead,<br/>Research &amp; Strategy</b></div><div><span>Focus</span><b>Renewal workflows,<br/>CPQ &amp; pipeline visibility</b></div><div><span>Outcome</span><b>30% faster renewal<br/>process</b></div></div>
+        </div>
+        <div class="hero-visual"><img src="assets/case-studies/sbr/sbr-featured.svg" alt="Salesforce SBR sales and commerce dashboard across desktop and mobile" /></div>
+      </div>
+      <div class="process-rail" aria-label="Project process"><div><i></i><b>Discover</b><small>Interviews &amp; renewal journey mapping</small></div><div><i></i><b>Define</b><small>Personas, priorities &amp; information architecture</small></div><div><i></i><b>Design</b><small>Flows, wireframes &amp; high-fidelity prototype</small></div><div><i></i><b>Validate</b><small>Usability testing, handoff &amp; iteration</small></div></div>
+      <section class="story"><span class="story-label">01 · Opportunity</span><div class="story-main"><h2>Renewal was spread across too many places.</h2><p>I led the redesign of the Salesforce workflow to address the friction created by fragmented systems, manual data entry and limited pipeline visibility. Sales teams needed one reliable place to understand the customer, move a renewal forward and know what to do next.</p><h3>Responsibilities</h3><ul class="role-list"><li>UX design lead, research &amp; strategy</li><li>Wireframing &amp; prototyping</li><li>Usability testing</li><li>Design system implementation</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-scope.svg" alt="Salesforce SBR scope showing the connected renewal workflow" /><figcaption>Solution scope</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">02 · Research &amp; framing</span><div class="story-main"><h2>I mapped the renewal journey before designing the workflow.</h2><p>I interviewed sales reps, regional managers and operations partners, then mapped the end-to-end renewal journey and created personas. The research surfaced redundant entry, unclear pipeline visibility and a lack of proactive alerts for expiring contracts.</p><p>The strategy and research phases established a shared, user-centered foundation for the work—before moving into design, testing and iteration.</p><h3>UX process &amp; methodology</h3><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-process.svg" alt="Salesforce SBR UX process and methodology" /><figcaption>UX process &amp; methodology</figcaption></figure></div><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-persona-ers.png" alt="Salesforce SBR equipment rental specialist persona" /><figcaption>Primary persona · equipment rental specialist</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-persona-sales-rep.png" alt="Salesforce SBR outside sales representative persona" /><figcaption>Secondary persona · outside sales representative</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">03 · Information architecture</span><div class="story-main"><h2>Made the customer story easier to scan and act on.</h2><p>Card-sorting sessions and user flows helped reveal how users naturally grouped and prioritized information. That input shaped an intuitive information architecture and flow for a 360° customer view, including history, product usage and recommended upsell or cross-sell opportunities.</p><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-flow.svg" alt="Salesforce SBR information architecture and user flow" /><figcaption>Information architecture &amp; flow</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-concept-direction-slide.png" alt="SBR presentation slide showing concept and touchpoint exploration" /><figcaption>Concept direction</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">04 · Design &amp; validation</span><div class="story-main"><h2>Prototyped the whole workflow, and refine it with users.</h2><p>Low- to medium-fidelity wireframes made it possible to test the core workflow early. High-fidelity prototypes then brought the experience closer to the finished product, with polished screens, realistic interactions and clear documentation for engineering.</p><ul class="bullet-list"><li>Built interactive flows to simulate real sales workflows.</li><li>Tested navigation, ease of use and task completion with stakeholders and end users.</li><li>Used working prototypes to align executives, product and engineering.</li><li>Prepared specifications, component documentation and style guidance for handoff.</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-prototype-low-fi-detail-slide.png" alt="SBR presentation slide showing low-fidelity account record wireframes" /><figcaption>Low-fidelity account record</figcaption></figure></div><h3>Detailed low-fidelity exploration</h3><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-lofi1.svg" alt="SBR low-fidelity account record wireframes" /><figcaption>Low-fidelity account record exploration</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-lofi2.svg" alt="SBR low-fidelity wireframe flow samples" /><figcaption>Low-fidelity workflow exploration</figcaption></figure></div><h3>High-fidelity prototype details</h3><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-hifi1.svg" alt="SBR high-fidelity sales dashboard wireframes" /><figcaption>Sales dashboard</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-hifi3.svg" alt="SBR high-fidelity account prototype" /><figcaption>Account experience</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-hifi4.svg" alt="SBR rental mobile wireframes" /><figcaption>Rental mobile experience</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/sbr/sbr-hifi5.svg" alt="SBR mobile sales release designs" /><figcaption>Mobile release enhancements</figcaption></figure></div><div class="impact"><div><span>Efficiency</span><strong>30% faster</strong><p>Renewal completion time was reduced through a more connected workflow.</p></div><div><span>Visibility</span><strong>Clearer forecasts</strong><p>Unified pipeline information improved forecasting accuracy.</p></div><div><span>Adoption</span><strong>One primary tool</strong><p>Salesforce became the central place for sales reps to manage renewal work.</p></div></div></div></section>
+      <div class="next-study"><span class="meta">Next case study</span><a href="#startdot">Start Dot End-to-End UX Solution</a></div>
+    </article>
+
+    <article class="case-detail wrap" id="startdot" aria-labelledby="startdot-title">
+      <a class="detail-back" href="#all"><b>←</b> All case studies</a>
+      <div class="detail-hero"><div><span class="eyebrow">03 — Research · Strategy · UI</span><h1 id="startdot-title">Start Dot <em>Solution.</em></h1><p class="detail-summary">A centralized intranet resource hub designed to help employees find workplace tools, documents and support without losing momentum.</p><div class="detail-meta"><div><span>Role</span><b>UX Design Lead,<br/>Research &amp; Strategy</b></div><div><span>Focus</span><b>Information architecture,<br/>onboarding &amp; access</b></div><div><span>Platforms</span><b>Responsive web,<br/>desktop &amp; mobile</b></div></div></div><div class="hero-visual"><img src="assets/case-studies/startdot/startdot-featured.svg" alt="Start Dot workplace resource hub interface" /></div></div>
+      <div class="process-rail" aria-label="Project process"><div><i></i><b>Discover</b><small>Focus groups, surveys &amp; content inventory</small></div><div><i></i><b>Structure</b><small>Scenarios, stories, sitemap &amp; flows</small></div><div><i></i><b>Design</b><small>Wireframes, branding &amp; prototype</small></div><div><i></i><b>Learn</b><small>Analytics, feedback &amp; iteration</small></div></div>
+      <section class="story"><span class="story-label">01 · Overview</span><div class="story-main"><h2>A workplace central hub, for distributed resources.</h2><p>StartDot EPE is an intranet product that acts as a mini information architecture site for an organization. It gives employees a centralized base for workplace productivity resources—from remote document access to communication, collaboration and service tools.</p><h3>Responsibilities</h3><ul class="role-list"><li>UX design lead, research &amp; strategy</li><li>Wireframing &amp; prototyping</li><li>Usability testing</li><li>Design system implementation</li></ul></div></section>
+      <section class="story"><span class="story-label">02 · The problem</span><div class="story-main"><h2>New and remote employees could not quickly find what they needed.</h2><ul class="bullet-list"><li>There was no central location for essential resources.</li><li>Documents were difficult to access remotely.</li><li>Tracking down the right service took too much time.</li><li>New employees faced a delay in productivity and learnability.</li></ul><h3>The solution</h3><p>The resulting hub provides easy access for internal and external users without software downloads, works with the existing data warehouse, and is designed to need no prior training. It is responsive, cross-browser compatible and includes user feedback plus analytics to support continued improvement.</p></div></section>
+      <section class="story"><span class="story-label">03 · Strategy &amp; research</span><div class="story-main"><h2>Understand needs, then make engagement measurable.</h2><p>Brainstorming, focus groups, surveys, metric analysis, content inventory, scenarios, user stories and flows helped turn a broad resource problem into a focused, usable experience. Empathy mapping, personas and journey mapping made the human context visible to the team.</p><p>Quantitative UX analysis then measured effectiveness, usability and adoption—using behavior, engagement and performance metrics to evaluate StartDot as a centralized workplace resource.</p><h3>Research foundation</h3><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-strategy-deliverables.svg" alt="Start Dot research strategy showing target users and research activities" /><figcaption>Target users &amp; research activities</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-process-method.svg" alt="Start Dot strategy collage with an empathy map, persona and employee journey" /><figcaption>Empathy mapping, personas &amp; journey mapping</figcaption></figure></div><h3>Quantitative UX analysis</h3><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-quantitative-insights.svg" alt="Start Dot survey insights showing participant count, everyday resource use and browser use" /><figcaption>Survey insights</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-engagement-analysis.svg" alt="Start Dot quantitative analysis of employee engagement and resource use" /><figcaption>Engagement &amp; performance analysis</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">04 · Design &amp; delivery</span><div class="story-main"><h2>I gave the resources a structure that users can recognize.</h2><p>Open and closed card-sorting sessions informed a practical sitemap and information architecture. Low- to medium-fidelity wireframes clarified core functionality early, while the high-fidelity interactive prototype used established visual style guidance and realistic workflow interactions.</p><ul class="bullet-list"><li>Created polished, brand-aligned responsive screens.</li><li>Added interactive flows to mirror actual employee tasks.</li><li>Tested navigation and task completion with users and stakeholders.</li><li>Used prototypes to gain alignment and support a smooth engineering handoff.</li></ul><h3>Information architecture</h3><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-information-architecture.svg" alt="Start Dot information architecture sitemap and flow" /><figcaption>Information architecture &amp; flow</figcaption></figure></div><h3>Low- to medium-fidelity exploration</h3><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-low-fi-exploration.svg" alt="Start Dot low- to medium-fidelity wireframe exploration" /><figcaption>Low- to medium-fidelity wireframes</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-low-fi-workflow.svg" alt="Start Dot wireframe workflow" /><figcaption>Core resource workflow</figcaption></figure></div><h3>High-fidelity prototype</h3><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-high-fi-prototype.svg" alt="Start Dot high-fidelity product prototype" /><figcaption>High-fidelity prototype</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/startdot/startdot-high-fi-responsive.svg" alt="Start Dot responsive high-fidelity interface" /><figcaption>Responsive interface</figcaption></figure></div><div class="impact"><div><span>Access</span><strong>One clear hub</strong><p>Employees can reach work resources from one intuitive starting point.</p></div><div><span>Confidence</span><strong>Low learning curve</strong><p>The structure is designed to be useful without training or special software.</p></div><div><span>Learning</span><strong>Feedback loop</strong><p>Behavioral analytics and feedback create a basis for continuous improvement.</p></div></div></div></section>
+      <div class="next-study"><span class="meta">Next case study</span><a href="#mg">MG Analytical Dashboard</a></div>
+    </article>
+
+    <article class="case-detail wrap" id="mg" aria-labelledby="mg-title">
+      <a class="detail-back" href="#all"><b>←</b> All case studies</a>
+      <div class="detail-hero"><div><span class="eyebrow">04 — Data UX · Dashboard</span><h1 id="mg-title">MG Analytical <em>Dashboard.</em></h1><p class="detail-summary">A responsive analytics tool that helps health administrators see performance patterns across regions, states and individual health centers.</p><div class="detail-meta"><div><span>Role</span><b>UX Design Lead</b></div><div><span>Audience</span><b>Health administrators,<br/>managers &amp; policymakers</b></div><div><span>Impact</span><b>70% less decision<br/>making time</b></div></div></div><div class="hero-visual"><img src="assets/case-studies/mg/mg-featured.svg" alt="MG Analytical Dashboard interface" /></div></div>
+      <div class="process-rail" aria-label="Project process"><div><i></i><b>Research</b><small>Stakeholder interviews &amp; data needs</small></div><div><i></i><b>Prioritize</b><small>KPIs, comparison needs &amp; mobile access</small></div><div><i></i><b>Prototype</b><small>Wireframes, dashboards &amp; responsive UI</small></div><div><i></i><b>Iterate</b><small>Usability testing &amp; evidence-led refinement</small></div></div>
+      <section class="story"><span class="story-label">01 · Overview</span><div class="story-main"><h2>Brought performance data into a clear, decision ready view.</h2><p>MG Analytical Dashboard is a web and mobile application for exploring health-center performance across a country. It helps health professionals, administrators and policymakers track key metrics at the regional, state and individual center level.</p><h3>Responsibilities</h3><ul class="role-list"><li>UX design lead</li><li>User research</li><li>Wireframing &amp; prototyping</li><li>Usability testing</li></ul></div></section>
+      <section class="story"><span class="story-label">02 · Research</span><div class="story-main"><h2>Complex data needed to become easier to compare and understand.</h2><p>Administrators and policymakers needed a centralized, data-driven way to assess the performance of health centers. I interviewed healthcare administrators, health center managers and policymakers to understand data needs, workflow challenges and decision-making requirements.</p><h3>Key findings</h3><ul class="bullet-list"><li>Data views needed to be customizable around relevant KPIs.</li><li>Mobile access was essential for on-the-go insight.</li><li>Complex data had to be simplified without losing meaning.</li><li>Comparing performance across states and centers was a priority.</li></ul><aside class="persona-board" aria-label="Research personas"><div class="persona-board-header"><div><span class="persona-board-kicker">The people behind the data</span><h3>Three perspectives. One clearer performance picture.</h3></div><span class="persona-board-mark" aria-hidden="true">01</span></div><div class="persona-roles"><div class="persona-role"><span aria-hidden="true">HA</span><b>Healthcare administrator</b><small>Needs a centralized view of performance data to support confident, timely decisions.</small></div><div class="persona-role"><span aria-hidden="true">HM</span><b>Health center manager</b><small>Needs relevant KPIs and clear visibility into individual health-center performance.</small></div><div class="persona-role"><span aria-hidden="true">PM</span><b>Policymaker</b><small>Needs meaningful comparisons across regions, states and health centers.</small></div></div><p class="persona-board-note">Their shared need: make complex performance data scannable, comparable and useful wherever decisions happen.</p></aside></div></section>
+      <section class="story"><span class="story-label">03 · Design solution</span><div class="story-main"><h2>Made important signals visible.</h2><p>The dashboard design approach translated data requirements into visual stories. High-level KPIs lead the experience, with drill-down controls for more granular analysis. Pie, area and bar charts show distribution within selected date ranges, while the responsive layout adapts for tablets and smaller screens.</p><ul class="bullet-list"><li><strong>Color coding:</strong> green, yellow and red signal positive, warning and critical performance levels.</li><li><strong>Data hierarchy:</strong> high-level KPIs appear first, with clear paths to details.</li><li><strong>Mobile responsiveness:</strong> layouts and chart interactions were optimized for tablet use.</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/mg/mg-low-mid-fi.svg" alt="MG dashboard low and medium fidelity designs" /><figcaption>Low- to medium-fidelity wireframes</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/mg/mg-featured.svg" alt="MG Analytical Dashboard interface" /><figcaption>Featured dashboard experience</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">04 · Test &amp; learn</span><div class="story-main"><h2>Tested clarity of indicators for decision making.</h2><p>Usability testing with 10 administrators and health managers assessed navigation, data clarity and feature usefulness. The results led to quick filters for choosing health centers, tooltips and guided walkthroughs to reduce cognitive load, and stronger visualizations and tap targets for mobile.</p><div class="impact"><div><span>Speed</span><strong>70% less time</strong><p>Decision-making time for administrators was reduced.</p></div><div><span>Adoption</span><strong>Higher uptake</strong><p>Health officials adopted the dashboard more readily after usability improvements.</p></div><div><span>Mobile</span><strong>More engagement</strong><p>Enhanced mobile design made dashboard use easier away from a desktop.</p></div></div></div></section>
+      <div class="next-study"><span class="meta">Next case study</span><a href="#diakrino">Diakrino Product</a></div>
+    </article>
+
+    <article class="case-detail wrap" id="diakrino" aria-labelledby="diakrino-title">
+      <a class="detail-back" href="#all"><b>←</b> All case studies</a>
+      <div class="detail-hero"><div><span class="eyebrow">05 — Product design · UX</span><h1 id="diakrino-title">Diakrino <em>Product.</em></h1><p class="detail-summary">A more accessible way for researchers, organizations and prospective clients to explore complex environmental dispersion modeling software.</p><div class="detail-meta"><div><span>Role</span><b>UX Design Lead</b></div><div><span>Focus</span><b>Technical content,<br/>model comparison &amp; demos</b></div><div><span>Impact</span><b>30% better demo<br/>conversion</b></div></div></div><div class="hero-visual"><img src="assets/case-studies/diakrino/diakrino-featured.svg" alt="Diakrino environmental modeling product interface" /></div></div>
+      <div class="process-rail" aria-label="Project process"><div><i></i><b>Research</b><small>Interviews, surveys &amp; competitive analysis</small></div><div><i></i><b>Frame</b><small>Features, use cases &amp; decision criteria</small></div><div><i></i><b>Design</b><small>Flows, visual hierarchy &amp; prototype</small></div><div><i></i><b>Improve</b><small>Testing, content clarity &amp; performance</small></div></div>
+      <section class="story"><span class="story-label">01 · The challenge</span><div class="story-main"><h2>Technical modeling tools was difficult to evaluate.</h2><p>Organizations and environmental researchers needed an intuitive way to explore, compare and understand environmental dispersion. Existing platforms often relied on dense technical content, which made key features, applications and benefits hard to absorb.</p><h3>Responsibilities</h3><ul class="role-list"><li>UX design lead</li><li>User research</li><li>Wireframing &amp; prototyping</li><li>Usability &amp; interaction design</li></ul><h3>The solution</h3><p>The product was designed as a modern, user-friendly web application that clearly presents capabilities, use cases and environmental models while making the experience engaging and informative for prospective customers.</p></div></section>
+      <section class="story"><span class="story-label">02 · User research</span><div class="story-main"><h2>Learned from the user's perspective.</h2><p>Interviews and surveys brought together the perspectives of environmental scientists and researchers, government and regulatory officials, and business clients in industrial, urban planning and energy sectors. Research also examined competing modeling platforms.</p><ul class="bullet-list"><li>Technical content was overwhelming and poorly structured.</li><li>Competitors rarely provided interactive demos or visual model comparisons.</li><li>Pricing was often unclear, making it harder for customers to decide.</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/diakrino/diakrino-process.svg" alt="Diakrino UX process" /><figcaption>UX process</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">03 · Flows &amp; prototype</span><div class="story-main"><h2>Used interaction to make the screenflow easier to see.</h2><p>Low- to medium-fidelity wireframes established a clear product story: an overview, feature breakdown with interactive environmental comparisons, real-world case studies. Interaction flows then tested how people would move through that story.</p><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/diakrino/diakrino-interaction-designs.jpg" alt="Diakrino interaction design flows" /><figcaption>Interaction design flows</figcaption></figure></div></div></section>
+      <section class="story"><span class="story-label">04 · High-fidelity design</span><div class="story-main"><h2>Brought information on environmental models closer to user's finger tips.</h2><p>The high-fidelity prototype focused on making the software approachable while preserving its technical depth. It combined clear content hierarchy with practical environmental product interactions and responsive layouts for desktop, tablet and mobile.</p><ul class="bullet-list"><li><strong>Interactive model explorer:</strong> compare and understand dispersion models.</li><li><strong>Live simulation preview:</strong> experience the model in action.</li><li><strong>Reports &amp; exports:</strong> access compliance reports and analytical data.</li><li><strong>Clear pricing:</strong> compare licensing options without guesswork.</li><li><strong>Mobile-ready UI:</strong> maintain usability across devices.</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/diakrino/diakrino-featured.svg" alt="Diakrino high-fidelity product design" /><figcaption>High-fidelity prototype</figcaption></figure></div><h3>Testing &amp; iteration</h3><p>Usability testing with 10 participants focused on navigation, information clarity and engagement. The team introduced tooltips and a glossary for non-experts, added interactive real-world scenarios, and optimized lightweight animations and caching to improve preview performance.</p><div class="impact"><div><span>Engagement</span><strong>40% increase</strong><p>Time spent on the site increased with a clearer, more engaging experience.</p></div><div><span>Conversion</span><strong>30% improvement</strong><p>Demo requests and sign-ups improved through better information and paths to action.</p></div><div><span>Onboarding</span><strong>Less friction</strong><p>Clearer language and guidance made complex data easier to approach.</p></div></div></div></section>
+      <div class="next-study"><span class="meta">Next case study</span><a href="#bbd">Bombardier Salesforce AI Transformation</a></div>
+    </article>
+
+    <article class="case-detail wrap" id="bbd" aria-labelledby="bbd-title">
+      <a class="detail-back" href="#all"><b>←</b> All case studies</a>
+      <div class="detail-hero">
+        <div>
+          <span class="eyebrow">01 — Aviation · Enterprise CRM · AI</span>
+          <h1 id="bbd-title">Bombardier Salesforce <em>AI Transformation.</em></h1>
+          <p class="detail-summary">A Salesforce transformation that brought Sales &amp; Services workflow, 360° customer and aircraft context, and AI-assisted next steps into one decision-ready experience.</p>
+          <div class="detail-meta"><div><span>Role</span><b>Lead Designer</b></div><div><span>Scope</span><b>Sales, services<br/>&amp; commerce</b></div><div><span>Platform</span><b>Salesforce, CRM Analytics<br/>&amp; SF Design System</b></div></div>
+        </div>
+        <div class="hero-visual"><img src="assets/case-studies/bbd/bbd-hero.png" alt="Bombardier Salesforce product transformation concept, including mobile sales dashboards and service workflow artifacts" /></div>
+      </div>
+      <div class="process-rail" aria-label="Project process"><div><i></i><b>Discover</b><small>15 interviews &amp; reverse demos</small></div><div><i></i><b>Map</b><small>Current- and future-state workflows</small></div><div><i></i><b>Design</b><small>Concepts, flows &amp; responsive UI</small></div><div><i></i><b>Validate</b><small>Feasibility reviews &amp; testing</small></div></div>
+
+      <section class="story"><span class="story-label">01 · Opportunity</span><div class="story-main"><h2>Sales and service teams had data, but not a dependable view of their work.</h2><p>Bombardier’s Sales &amp; Services teams needed a clearer way to see pipeline health, customer interactions, aircraft and service context, contract limitations, and the work required to move a deal forward. Information lived across systems, which made it harder to prioritize customers, create proposals, manage renewals and keep Salesforce current.</p><p>The opportunity was not simply to add another dashboard. It was to make Salesforce the trusted, single place for the customer story and the next action.</p><h3>My contribution</h3><ul class="role-list"><li>Lead experience design across discovery, synthesis and future-state planning.</li><li>Translated research findings into requirements, concepts and screen flows.</li><li>Guided Salesforce-native responsive design using CRM Analytics and the Salesforce Design System.</li><li>Supported stakeholder reviews, technical feasibility conversations and validation.</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-workplan.png" alt="Bombardier Sales and Services experience strategy and design work plan" /><figcaption>Research, concept and validation work plan</figcaption></figure></div></div></section>
+
+      <section class="story"><span class="story-label">02 · Discovery</span><div class="story-main"><h2>Started with the work behind every opportunity.</h2><p>Research focused on understanding the day-to-day work, constraints and opportunities shaping an ideal future state for AI in Bombardier sales. The study combined interviews across Smart Services and New Aircraft Sales with reverse demos and pre-discovery recordings.</p><div class="impact"><div><span>Research</span><strong>15 interviews</strong><p>Total interviews completed across Smart Services and New Aircraft Sales.</p></div><div><span>Smart Services</span><strong>3 interviews</strong><p>Input from the service side of the sales and customer workflow.</p></div><div><span>New Aircraft Sales</span><strong>6 + 6 interviews</strong><p>Perspectives from U.S. &amp; Canada and international sales teams.</p></div></div><p>Service &amp; Sales Managers and Directors were the primary personas. Managers needed to qualify and prioritize leads while assembling background information from disparate sources; Directors needed to manage relationships, opportunities, proposals and contracts, often while travelling and managing competing demands.</p></div></section>
+
+      <section class="story"><span class="story-label">03 · Personas</span><div class="story-main"><h2>Design around the people carrying the pipeline forward.</h2><p>Service &amp; Sales Managers and Directors were the primary personas shaping the experience. Their research-backed goals, tasks and friction points kept the work grounded in the realities of qualifying leads, sustaining customer relationships and moving opportunities to close.</p><p>VPs of Sales, Sales Account Representatives and Lead Generation were also identified as secondary personas whose needs informed supporting features and use cases.</p><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-sales-manager-persona.png" alt="Service and Sales Manager persona showing goals, tasks and challenges related to lead qualification, outreach and customer context" /><figcaption>Primary persona · Service &amp; Sales Manager</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-sales-director-persona.png" alt="Service and Sales Director persona showing goals, tasks and challenges related to relationships, opportunities, proposals and contracts" /><figcaption>Primary persona · Service &amp; Sales Director</figcaption></figure></div></div></section>
+
+      <section class="story"><span class="story-label">04 · Strategy</span><div class="story-main"><h2>Journey Mapping for Current and Future State.</h2><p>Current- and future-state journey mapping made handoffs, disconnected systems and repeated manual work visible. The resulting future-state workflow traced the path from lead through opportunity and close, while connecting the supporting Customer 360, reporting and Aircraft 360 information teams needed along the way.</p><p>Card sorting then turned a broad set of needs into a clearer product model. The process helped align what belonged in the dashboard, account, aircraft, lead and opportunity experiences before the team moved into detailed UI.</p><h3>Problem → insight → design decision</h3><ul class="bullet-list"><li><strong>Fragmented activity:</strong> bring lead, opportunity and service workflow into a more connected Salesforce path.</li><li><strong>Missing context:</strong> pair Customer 360 and Aircraft 360 information with the sales workflow.</li><li><strong>Manual prioritization:</strong> introduce real-time signals, scoring and recommended next actions.</li><li><strong>Slow renewals:</strong> support CPQ-driven proposal and renewal automation.</li></ul><div class="asset-grid one"><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-future-state-map.png" alt="Finalized future-state workflow from lead to closed opportunity" /><figcaption>Future-state sales and services workflow</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-card-sort.png" alt="Feature requirement card-sorting output across account, aircraft, dashboard and lead views" /><figcaption>Feature requirement card sort</figcaption></figure></div></div></section>
+
+      <section class="story"><span class="story-label">05 · Design direction</span><div class="story-main"><h2>Feature Prioritization.</h2><p>Feature prioritization connected interview evidence, UX strategy and stakeholder input to a feasible Salesforce product direction. High-priority needs included a real-time sales dashboard, regional activity notifications, dynamic filtering and search, automated stage progression, recommended actions and product ownership history. AI-driven pipeline insights and risk alerts were also framed as a key capability.</p><p>Concept sketching, whiteboarding, wireframe iterations, screen flows and a responsive prototype made it possible to review the end-to-end experience with stakeholders and technical partners before refining the detail.</p><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-concept-workshop.png" alt="Concept ideation and sketching workshop output for dashboard, account, aircraft, leads and opportunities" /><figcaption>Concept ideation workshop</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-screen-flows.png" alt="Figma screen flows for dashboard, account, aircraft, leads and opportunities" /><figcaption>Figma screen flows</figcaption></figure></div></div></section>
+
+      <section class="story"><span class="story-label">06 · Solution</span><div class="story-main"><h2>Alignment of metrics, context and next actions.</h2><p>The final Salesforce experience gives Sales &amp; Service Directors and Managers a real-time dashboard for metrics, service performance and task prioritization. AI-driven pipeline health, risk alerts, deal recommendations, a real-time Einstein assistant and follow-up reminders make the system more useful in the moment of work.</p><p>Account and aircraft views add the context needed for stronger conversations: customer relationships, corporate and financial information, product history, ownership, service details, documentation, regional considerations and signals for upsell opportunities. Lead and opportunity views extend the model with AI scoring, next-best-action recommendations and draft-email support.</p><div class="asset-grid"><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-dashboard.png" alt="Bombardier Salesforce dashboard across desktop and mobile" /><figcaption>Decision-ready dashboard</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-account-360.png" alt="Bombardier Salesforce customer account 360 experience across desktop, tablet and mobile" /><figcaption>Customer Account 360</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-aircraft-360.png" alt="Bombardier Salesforce Aircraft 360 product view across devices" /><figcaption>Aircraft and product context</figcaption></figure><figure><img loading="lazy" src="assets/case-studies/bbd/bbd-opportunity-management.png" alt="Bombardier Salesforce opportunity management across desktop and mobile" /><figcaption>Opportunity management</figcaption></figure><figure class="asset-full"><img loading="lazy" src="assets/case-studies/bbd/bbd-lead-insights-2x.png" alt="Bombardier Salesforce lead contact insights with AI scoring and next best actions" /><figcaption>Lead insights and next-best actions</figcaption></figure></div></div></section>
+
+      <section class="story"><span class="story-label">07 · Results &amp; impact</span><div class="story-main"><h2>A more connected platform made workflow visible, complete and efficient.</h2><p>The reported outcomes show improvements across workflow transparency, data quality, automation, Salesforce coverage, proposal creation and the Smart Services customer experience.</p><div class="impact"><div><span>Visibility</span><strong>90%</strong><p>Sales reps reported improved visibility into the customer journey.</p></div><div><span>Data quality</span><strong>99%</strong><p>Reduction in missing or inaccurate customer-service data entries.</p></div><div><span>Automation</span><strong>80%</strong><p>Customer reps reported a reduced workload burden.</p></div><div><span>Coverage</span><strong>100%</strong><p>Data fields were made available in Salesforce.</p></div><div><span>Proposals</span><strong>50%</strong><p>Less time was required to generate a new proposal.</p></div><div><span>Customer experience</span><strong>+5</strong><p>CSAT score improvement for Elite Smart Services customers.</p></div></div></div></section>
+
+      <div class="next-study"><span class="meta">Next case study</span><a href="#sbr">Salesforce SBR Solution</a></div>
+    </article>
+  </main>
+  <a class="back-to-top" href="#top"><span aria-hidden="true">↑</span> Back to top</a>
+  <footer><div class="wrap"><span>© 2026 Joy McLeod</span><span>Principal Product Designer</span><a href="index.html">Back to home ↑</a></div></footer>
+  <script>
+    const navigation = document.querySelector('header nav');
+    const navToggle = document.querySelector('.nav-toggle');
+    const closeNavigation = () => {
+      navigation.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation');
+    };
+    navToggle.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+    document.addEventListener('click', event => { if (navigation.classList.contains('nav-open') && !navigation.contains(event.target)) closeNavigation(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeNavigation(); });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeNavigation));
+    window.matchMedia('(min-width: 601px)').addEventListener('change', event => { if (event.matches) closeNavigation(); });
+    const backToTop = document.querySelector('.back-to-top');
+    const updateBackToTop = () => backToTop.classList.toggle('is-visible', window.scrollY > 480);
+    window.addEventListener('scroll', updateBackToTop, { passive:true });
+    updateBackToTop();
+    const studyIds = ['sbr', 'startdot', 'mg', 'diakrino', 'bbd'];
+    const details = studyIds.map(id => document.getElementById(id));
+    const hub = document.getElementById('all');
+    function renderStudy() {
+      const selected = window.location.hash.slice(1);
+      const isStudy = studyIds.includes(selected);
+      document.body.classList.toggle('study-open', isStudy);
+      hub.hidden = isStudy;
+      details.forEach(detail => detail.classList.toggle('active', detail.id === selected));
+      if (isStudy) requestAnimationFrame(() => window.scrollTo({ top:0, behavior:'auto' }));
+      if (!isStudy) requestAnimationFrame(() => window.scrollTo({ top:0, behavior:'auto' }));
+    }
+    window.addEventListener('hashchange', renderStudy);
+    renderStudy();
+  </script>
+</body>
+</html>
